@@ -1,15 +1,56 @@
-# Ignorar entorno virtual
-entorno_django/
+# Ignorar carpetas de caché de Python
+__pycache__/
+*.pyc
 
-# Python __pycache__
+# Ignorar caché específicas de apps
 apps/dashboard/__pycache__/
 apps/dashboard/migrations/__pycache__/
 apps/tasks/__pycache__/
 apps/tasks/migrations/__pycache__/
-argon/__pycache__/
 
-# Base de datos y configuración
+# Ignorar migraciones (opcional, pero común ignorarlas)
+apps/dashboard/migrations/
+apps/tasks/migrations/
+
+# Ignorar entorno virtual (ajusta si usas otro nombre)
+entorno_django/
+venv/
+env/
+
+# Ignorar archivos y carpetas comunes
 conf/
 photos/
 db.sqlite3
 .env
+
+# Ignorar carpetas de IDEs y editores (opcional)
+.vscode/
+.idea/
+# Ignorar carpetas de caché de Python
+__pycache__/
+*.pyc
+
+# Ignorar caché específicas de apps
+apps/dashboard/__pycache__/
+apps/dashboard/migrations/__pycache__/
+apps/tasks/__pycache__/
+apps/tasks/migrations/__pycache__/
+
+# Ignorar migraciones (opcional, pero común ignorarlas)
+apps/dashboard/migrations/
+apps/tasks/migrations/
+
+# Ignorar entorno virtual (ajusta si usas otro nombre)
+entorno_django/
+venv/
+env/
+
+# Ignorar archivos y carpetas comunes
+conf/
+photos/
+db.sqlite3
+.env
+
+# Ignorar carpetas de IDEs y editores (opcional)
+.vscode/
+.idea/
