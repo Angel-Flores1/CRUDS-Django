@@ -1,119 +1,105 @@
-# README
+# 📋 CRUDS-Django - Guía de Inicio Rápido
 
-## ¿Qué es este proyecto?
+## 🧾 Descripción del Proyecto
 
-Este proyecto es una aplicación web llamada **snake**. Permite gestionar tareas y usuarios de manera sencilla a través de una página web.
+Una aplicación web desarrollada con Django que permite gestionar registros mediante un sistema CRUD completo. Ideal para administrar datos desde un panel intuitivo en el navegador.
 
----
-
-## ¿Qué necesito para usarlo?
-
-Solo necesitas una computadora con **Windows**, **Linux** o **Mac**.  
+Incluye autenticación, panel administrativo, gestión de tareas y perfiles de usuario.
 
 ---
 
-## Pasos para usar el proyecto
+## ✅ Requisitos Previos
 
-### 1. Instalar Python
+- Python 3.10 o superior
+- PostgreSQL (instalado y corriendo)
+- Git (opcional, pero recomendado)
+- Conexión a Internet para descargar dependencias
 
-- Ve a [https://www.python.org/downloads/](https://www.python.org/downloads/) y descarga la versión más reciente de **Python**.
-- Instala Python en tu computadora (asegúrate de marcar la casilla que dice "Add Python to PATH" durante la instalación).
+---
 
-### 2. Descargar el proyecto
+## 🚀 Guía de Instalación
 
-- Haz clic en el botón verde que dice **"Code"** en la página de GitHub del proyecto.
-- Selecciona **"Download ZIP"**.
-- Extrae el archivo ZIP en una carpeta de tu computadora.
+### 1. Clonar o descargar el proyecto
 
-### 3. Abrir una terminal o consola
-
-- En **Windows**: Busca "cmd" o "Símbolo del sistema" y ábrelo.
-- En **Linux/Mac**: Abre la aplicación llamada "Terminal".
-
-### 4. Ir a la carpeta del proyecto
-
-En la terminal, escribe el siguiente comando y presiona **Enter** (reemplaza `ruta/a/tu/carpeta` por la carpeta donde extrajiste el proyecto):
+**Opción A: Clonar el repositorio con Git**
 
 ```bash
-cd ruta/a/tu/carpeta/snake
-```
-### 5. (Opcional pero recomendado) Crear un entorno virtual
+git clone https://github.com/Angel-Flores1/CRUDS-Django.git
+cd CRUDS-Django
+Opción B: Descargar como ZIP
 
-En la terminal, ejecuta:
+    Pulsa el botón verde "Code" → "Download ZIP"
 
-```bash
-python -m venv venv
-```
+    Extrae el archivo y abre una terminal dentro de la carpeta extraída
 
-Activa el entorno virtual:
+2. Crear y activar entorno virtual
 
-- En **Windows**:
-  ```bash
-  venv\Scripts\activate
-  ```
-- En **Linux/Mac**:
-  ```bash
-  source venv/bin/activate
-  ```
+python -m venv entorno_django
 
-Luego continúa con la instalación de dependencias.
+Activar entorno:
 
-### 6. Instalar las dependencias
+    Windows: entorno_django\Scripts\activate
 
-Escribe este comando y presiona **Enter**:
+    macOS/Linux: source entorno_django/bin/activate
 
-```bash
+3. Instalar dependencias
+
 pip install -r requirements.txt
-```
 
-Esto instalará todo lo necesario para que el proyecto funcione.
+4. Configurar base de datos PostgreSQL
 
-### 7. Configurar variables de entorno
+Asegúrate de tener PostgreSQL instalado y un usuario configurado. Luego edita el archivo .env (o configura tus variables de entorno) con estos datos:
 
-Crea un archivo llamado `.env` en la carpeta principal del proyecto y agrega el siguiente contenido (ajusta los valores según tu configuración):
+DB_NAME=snake
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_HOST=localhost
+DB_PORT=5432
 
-```
-SECRET_KEY="Tu llave secreta"
-ENGINE=django.db.backends.postgresql_psycopg2
-DB_NAME="Nombre de la base de datos"
-DB_USER="Usuario de la base de datos"
-DB_PASSWORD="contraseña de tu usuario para la base de datos"
-DB_HOST="ip del servidor" "puede ser local_host"
-DB_PORT="Puerto donde corre el proyecto"
-```
+5. Aplicar migraciones
 
-Estas variables son necesarias para que el proyecto funcione correctamente.
-
-### 8. Crear la base de datos
-
-Escribe este comando y presiona **Enter**:
-
-```bash
 python manage.py migrate
-```
 
-Esto prepara la base de datos para que la aplicación funcione.
+6. Crear superusuario (opcional)
 
+python manage.py createsuperuser
 
-### 9. Iniciar la aplicación
+Sigue las instrucciones para asignar nombre de usuario, correo y contraseña.
+7. Ejecutar el servidor de desarrollo
 
-Escribe este comando y presiona **Enter**:
+python manage.py runserver 9090
 
-```bash
-python manage.py runserver
-```
+🌐 Acceso a la Aplicación
 
-Verás un mensaje que dice que el servidor está corriendo.
+    Aplicación principal: http://localhost:9090/
 
-### 10. Abrir la aplicación en tu navegador
+    Panel administrativo: http://localhost:9090/admin/
 
-Abre tu navegador (Chrome, Firefox, Edge, etc.) y escribe la siguiente dirección:
+🛑 Para detener el servidor
 
-```
-http://127.0.0.1:8000/
-```
+Presiona Ctrl + C en la terminal.
+⚠️ Solución a problemas comunes
+❌ ModuleNotFoundError: No module named 'django'
 
-¡Listo! Ahora puedes usar la aplicación web.
+    Asegúrate de tener activado el entorno virtual.
 
+    Ejecuta pip install -r requirements.txt.
 
-**¡Gracias por usar este proyecto!**
+❌ OperationalError: could not connect to server
+
+    PostgreSQL no está corriendo. Inícialo con: sudo systemctl start postgresql
+
+    Verifica que la IP/puerto en DB_HOST y DB_PORT sean correctos.
+
+❌ python no se reconoce como comando
+
+    Asegúrate de marcar "Add Python to PATH" durante la instalación de Python.
+
+    O usa python3 si estás en Linux/macOS.
+
+🧠 Nota final
+
+Este proyecto ya está configurado para usar PostgreSQL. Si prefieres SQLite para desarrollo rápido, puedes cambiar el ENGINE y NAME en settings.py.
+🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas! Puedes abrir un issue o enviar un pull request.
