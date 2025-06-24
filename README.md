@@ -22,84 +22,100 @@ Incluye autenticación, panel administrativo, gestión de tareas y perfiles de u
 ### 1. Clonar o descargar el proyecto
 
 **Opción A: Clonar el repositorio con Git**
-
 ```bash
 git clone https://github.com/Angel-Flores1/CRUDS-Django.git
 cd CRUDS-Django
-Opción B: Descargar como ZIP
+```
 
-    Pulsa el botón verde "Code" → "Download ZIP"
+**Opción B: Descargar como ZIP**
+- Pulsa el botón verde "Code" → "Download ZIP"
+- Extrae el archivo y abre una terminal dentro de la carpeta extraída
 
-    Extrae el archivo y abre una terminal dentro de la carpeta extraída
+### 2. Crear y activar entorno virtual
 
-2. Crear y activar entorno virtual
-
+```bash
 python -m venv entorno_django
+```
 
-Activar entorno:
+**Activar entorno:**
+- **Windows:** `entorno_django\Scripts\activate`
+- **macOS/Linux:** `source entorno_django/bin/activate`
 
-    Windows: entorno_django\Scripts\activate
+### 3. Instalar dependencias
 
-    macOS/Linux: source entorno_django/bin/activate
-
-3. Instalar dependencias
-
+```bash
 pip install -r requirements.txt
+```
 
-4. Configurar base de datos PostgreSQL
+### 4. Configurar base de datos PostgreSQL
 
-Asegúrate de tener PostgreSQL instalado y un usuario configurado. Luego edita el archivo .env (o configura tus variables de entorno) con estos datos:
+Asegúrate de tener PostgreSQL instalado y un usuario configurado. Luego edita el archivo `.env` (o configura tus variables de entorno) con estos datos:
 
+```env
 DB_NAME=snake
 DB_USER=postgres
 DB_PASSWORD=postgres
 DB_HOST=localhost
 DB_PORT=5432
+```
 
-5. Aplicar migraciones
+### 5. Aplicar migraciones
 
+```bash
 python manage.py migrate
+```
 
-6. Crear superusuario (opcional)
+### 6. Crear superusuario (opcional)
 
+```bash
 python manage.py createsuperuser
+```
 
 Sigue las instrucciones para asignar nombre de usuario, correo y contraseña.
-7. Ejecutar el servidor de desarrollo
 
+### 7. Ejecutar el servidor de desarrollo
+
+```bash
 python manage.py runserver 9090
+```
 
-🌐 Acceso a la Aplicación
+---
 
-    Aplicación principal: http://localhost:9090/
+## 🌐 Acceso a la Aplicación
 
-    Panel administrativo: http://localhost:9090/admin/
+- **Aplicación principal:** http://localhost:9090/
+- **Panel administrativo:** http://localhost:9090/admin/
 
-🛑 Para detener el servidor
+---
 
-Presiona Ctrl + C en la terminal.
-⚠️ Solución a problemas comunes
-❌ ModuleNotFoundError: No module named 'django'
+## 🛑 Para detener el servidor
 
-    Asegúrate de tener activado el entorno virtual.
+Presiona `Ctrl + C` en la terminal.
 
-    Ejecuta pip install -r requirements.txt.
+---
 
-❌ OperationalError: could not connect to server
+## ⚠️ Solución a problemas comunes
 
-    PostgreSQL no está corriendo. Inícialo con: sudo systemctl start postgresql
+### ❌ ModuleNotFoundError: No module named 'django'
+- Asegúrate de tener activado el entorno virtual.
+- Ejecuta `pip install -r requirements.txt`.
 
-    Verifica que la IP/puerto en DB_HOST y DB_PORT sean correctos.
+### ❌ OperationalError: could not connect to server
+- PostgreSQL no está corriendo. Inícialo con: `sudo systemctl start postgresql`
+- Verifica que la IP/puerto en `DB_HOST` y `DB_PORT` sean correctos.
 
-❌ python no se reconoce como comando
+### ❌ python no se reconoce como comando
+- Asegúrate de marcar "Add Python to PATH" durante la instalación de Python.
+- O usa `python3` si estás en Linux/macOS.
 
-    Asegúrate de marcar "Add Python to PATH" durante la instalación de Python.
+---
 
-    O usa python3 si estás en Linux/macOS.
+## 🧠 Nota final
 
-🧠 Nota final
+Este proyecto ya está configurado para usar PostgreSQL. Si prefieres SQLite para desarrollo rápido, puedes cambiar el `ENGINE` y `NAME` en `settings.py`.
 
-Este proyecto ya está configurado para usar PostgreSQL. Si prefieres SQLite para desarrollo rápido, puedes cambiar el ENGINE y NAME en settings.py.
-🤝 Contribuciones
+---
+
+## 🤝 Contribuciones
 
 ¡Las contribuciones son bienvenidas! Puedes abrir un issue o enviar un pull request.
